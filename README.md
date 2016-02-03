@@ -2,7 +2,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/evild/alpine-nginx.svg?style=flat-square)](https://hub.docker.com/r/evild/alpine-nginx/)
 [![ImageLayers Size](https://img.shields.io/imagelayers/image-size/evild/alpine-nginx/latest.svg?style=flat-square)](https://hub.docker.com/r/evild/alpine-nginx/)
 
-# Nginx Docker image
+# Alpine Nginx
 
 This image is based on [evild/alpine-base](https://hub.docker.com/r/evild/alpine-base/)
 
