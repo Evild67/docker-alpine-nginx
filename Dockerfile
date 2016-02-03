@@ -1,7 +1,7 @@
 FROM evild/alpine-base:1.0.0
 MAINTAINER Dominique HAAS <contact@dominique-haas.fr>
 
-ENV NGINX_VERSION nginx-1.9.9
+ENV NGINX_VERSION nginx-1.9.10
 
 RUN apk --no-cache add openssl-dev pcre-dev zlib-dev wget build-base && \
         mkdir -p /tmp/src && \
