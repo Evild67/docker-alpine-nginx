@@ -3,13 +3,16 @@ MAINTAINER Dominique HAAS <contact@dominique-haas.fr>
 
 ENV NGINX_VERSION nginx-1.9.12
 
-RUN apk --no-cache add openssl-dev pcre-dev zlib-dev wget build-base && \
-        mkdir -p /tmp/src && \
-        cd /tmp/src && \
-        wget http://nginx.org/download/${NGINX_VERSION}.tar.gz && \
-        tar -zxvf ${NGINX_VERSION}.tar.gz && \
-        cd /tmp/src/${NGINX_VERSION} && \
-        ./configure \
+RUN apk --no-cache add openssl-dev pcre-dev zlib-dev wget build-base gnupg \
+        && mkdir -p /tmp/src \
+        && cd /tmp/src \
+        && wget http://nginx.org/download/${NGINX_VERSION}.tar.gz \
+        && wget http://nginx.org/download/${NGINX_VERSION}.tar.gz.asc \
+        && gpg --keyserver pgpkeys.mit.edu --recv-key A1C052F8 \
+        && gpg --verify ${NGINX_VERSION}.tar.gz.asc ${NGINX_VERSION}.tar.gz \
+        && tar -zxvf ${NGINX_VERSION}.tar.gz \
+        && cd /tmp/src/${NGINX_VERSION} \
+        && ./configure \
             --with-http_ssl_module \
             --with-http_gzip_static_module \
             --with-http_v2_module \
@@ -17,15 +20,15 @@ RUN apk --no-cache add openssl-dev pcre-dev zlib-dev wget build-base && \
             --prefix=/etc/nginx \
             --http-log-path=/var/log/nginx/access.log \
             --error-log-path=/var/log/nginx/error.log \
-            --sbin-path=/usr/local/sbin/nginx && \
-        make && \
-        make install && \
-        apk del build-base && \
-        rm -rf /tmp/src
+            --sbin-path=/usr/local/sbin/nginx \
+        && make \
+        && make install \
+        && apk del build-base \
+        && rm -rf /tmp/src
 
 # forward request and error logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
-    ln -sf /dev/stderr /var/log/nginx/error.log
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
 
 VOLUME ["/var/log/nginx"]
 
