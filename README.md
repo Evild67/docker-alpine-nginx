@@ -13,7 +13,6 @@ This image is based on [evild/alpine-base](https://hub.docker.com/r/evild/alpine
 - `1.9.10` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/e939de5fe2d82092c45d97379d681875d9f2e533/Dockerfile)
 - `1.9.9` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/69d6179fa9f4d939a73422ceaf31c9dd56f41d96/Dockerfile)
 
-
 ## Basic usage
 
 ```docker run -p 80:80 -p 443:443 --name nginx evild/alpine-nginx```
