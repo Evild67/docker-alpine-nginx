@@ -4,7 +4,7 @@ MAINTAINER Dominique HAAS <contact@dominique-haas.fr>
 ENV NGINX_VERSION 1.9.12
 
 RUN \
-  build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" \
+  build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev gnupg" \
   && runtime_pkgs="ca-certificates openssl pcre zlib" \
   && apk --no-cache add ${build_pkgs} ${runtime_pkgs} \
   && mkdir -p /tmp/src \
@@ -18,6 +18,7 @@ RUN \
   && ./configure \
     --user=www-data \
     --group=www-data \
+    --sbin-path=/usr/sbin/nginx \
     --with-http_ssl_module \
     --with-http_realip_module \
     --with-http_addition_module \
@@ -42,11 +43,9 @@ RUN \
     --prefix=/etc/nginx \
     --http-log-path=/var/log/nginx/access.log \
     --error-log-path=/var/log/nginx/error.log \
-    --sbin-path=/usr/local/sbin/nginx \
   && make \
   && make install \
   && make clean \
-  && apk del build-base \
   && rm -rf /tmp/src \
   && strip -s /usr/sbin/nginx \
   && apk del ${build_pkgs} \
