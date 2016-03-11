@@ -3,7 +3,6 @@ MAINTAINER Dominique HAAS <contact@dominique-haas.fr>
 
 ENV NGINX_VERSION 1.9.12
 
-
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" \
   && runtime_pkgs="ca-certificates openssl pcre zlib" \
