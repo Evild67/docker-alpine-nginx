@@ -6,7 +6,7 @@ ENV NGINX_VERSION 1.9.12
 RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev" \
   && runtime_pkgs="ca-certificates openssl pcre zlib" \
-  apk --no-cache $ ${build_pkgs} ${runtime_pkgs} \
+  && apk --no-cache add ${build_pkgs} ${runtime_pkgs} \
   && mkdir -p /tmp/src \
   && cd /tmp/src \
   && wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
