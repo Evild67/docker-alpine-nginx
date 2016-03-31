@@ -8,7 +8,8 @@ This image is based on [evild/alpine-base](https://hub.docker.com/r/evild/alpine
 
 ## Version
 
-- `1.9.12`, `latest` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/master/Dockerfile)
+- `1.9.13`, `latest` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/master/Dockerfile)
+- `1.9.12` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/03e9f3eaf49961ac482bd0eb462562f3f5809a50/Dockerfile)
 - `1.9.11` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/121a9b9d36a6f895d3af8d5ffcad7d751beec444/Dockerfile)
 - `1.9.10` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/e939de5fe2d82092c45d97379d681875d9f2e533/Dockerfile)
 - `1.9.9` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/69d6179fa9f4d939a73422ceaf31c9dd56f41d96/Dockerfile)
