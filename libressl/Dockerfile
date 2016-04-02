@@ -32,6 +32,7 @@ RUN \
     --user=www-data \
     --group=www-data \
     --sbin-path=/usr/sbin/nginx \
+    --with-http_ssl_module \
     --with-openssl=/tmp/libressl/libressl-${LIBRESSL_VERSION} \
     --with-ld-opt="-lrt" \
     --with-http_realip_module \
