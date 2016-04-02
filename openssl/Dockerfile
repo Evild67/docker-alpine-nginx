@@ -4,13 +4,13 @@ MAINTAINER Dominique HAAS <contact@dominique-haas.fr>
 ENV NGINX_VERSION 1.9.13
 
 RUN \
-  build_pkgs="build-base linux-headers openssl-dev pcre-dev wget zlib-dev gnupg" \
+  build_pkgs="build-base linux-headers openssl-dev pcre-dev curl zlib-dev gnupg" \
   && runtime_pkgs="ca-certificates openssl pcre zlib" \
   && apk --no-cache add ${build_pkgs} ${runtime_pkgs} \
   && mkdir -p /tmp/src \
   && cd /tmp/src \
-  && wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
-  && wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz.asc \
+  && curl -O http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz \
+  && curl -O http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz.asc \
   && gpg --keyserver pgpkeys.mit.edu --recv-key A1C052F8 \
   && gpg --verify nginx-${NGINX_VERSION}.tar.gz.asc nginx-${NGINX_VERSION}.tar.gz \
   && tar -zxvf nginx-${NGINX_VERSION}.tar.gz \
