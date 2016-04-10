@@ -8,7 +8,6 @@ RUN \
   build_pkgs="build-base linux-headers openssl-dev pcre-dev curl zlib-dev gnupg" \
   && runtime_pkgs="ca-certificates openssl pcre zlib" \
   && apk --no-cache add ${build_pkgs} ${runtime_pkgs} \
-  && apk --no-cache add ${build_pkgs} ${runtime_pkgs}
   && for key in $GPG_KEYS; do \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done \
