@@ -1,4 +1,4 @@
-FROM evild/alpine-base:1.0.0
+FROM evild/alpine-base:2.0.0
 MAINTAINER Dominique HAAS <contact@dominique-haas.fr>
 
 ARG NGINX_VERSION=1.9.14
