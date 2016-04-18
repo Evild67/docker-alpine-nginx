@@ -1,0 +1,10 @@
+services:
+    - docker
+
+before_install:
+    - docker --version
+    - docker build -t evild/alpine-nginx .
+    - docker inspect evild/alpine-nginx
+    - docker run evild/alpine-nginx -p 80:80
+script:
+  - curl -vsf 'http://localhost:80/' &> /dev/stdout
