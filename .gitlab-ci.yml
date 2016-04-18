@@ -4,14 +4,15 @@ stages:
   - deploy
 
 build_job:
+  image: gitlab/dind
   stage: build
   script:
-    - curl -sSL https://get.docker.com/ | sh 
     - docker --version
     - docker build -t evild/alpine-nginx mainline/libressl
     - docker inspect evild/alpine-nginx
     
 test_job:
+  image: gitlab/dind
   stage: test
   script:
     - docker run -p 80:80 -d --name nginx evild/alpine-nginx
