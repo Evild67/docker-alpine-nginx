@@ -1,10 +1,11 @@
+image: gitlab/dind:latest
+
 stages:
   - build
   - test
   - deploy
 
 build_job:
-  image: gitlab/dind
   stage: build
   script:
     - docker --version
@@ -12,7 +13,6 @@ build_job:
     - docker inspect evild/alpine-nginx
     
 test_job:
-  image: gitlab/dind
   stage: test
   script:
     - docker run -p 80:80 -d --name nginx evild/alpine-nginx
