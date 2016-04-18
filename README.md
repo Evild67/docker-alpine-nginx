@@ -25,6 +25,26 @@ This image is based on [evild/alpine-base](https://hub.docker.com/r/evild/alpine
 - `stable` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/master/stable/openssl/Dockerfile)
 - `1.8.1` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/94288e4964c8261729c4103e4ce24077c8a1e67a/stable/openssl/Dockerfile)
 
+
+
+## What is Nginx?
+Nginx (pronounced "engine-x") is an open source reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP cache, and a web server (origin server). The nginx project started with a strong focus on high concurrency, high performance and low memory usage. It is licensed under the 2-clause BSD-like license and it runs on Linux, BSD variants, Mac OS X, Solaris, AIX, HP-UX, as well as on other nix flavors. It also has a proof of concept port for Microsoft Window..
+
+## Installation
+Automated builds of the image are available on Dockerhub and is the recommended method of installation.
+```
+docker pull evild/alpine-nginx:1.9.14
+```
+You can also pull the latest tag which is built from the repository HEAD.
+```
+docker pull evild/alpine-nginx:latest
+```
+Alternatively you can build the image locally.
+```
+docker build -t evild/alpine-nginx github.com/evild67/alpine-nginx
+```
+
+
 ## Basic usage
 
 ```docker run -p 80:80 -p 443:443 --name nginx evild/alpine-nginx```
