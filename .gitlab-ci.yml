@@ -1,0 +1,7 @@
+stages:
+  - deploy
+
+Git MIRROR:
+  stage: deploy
+  script:
+    - git push --mirror https://GITHUB_TOKEN@Evild67/docker-alpine-nginx.git
