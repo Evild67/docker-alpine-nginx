@@ -6,7 +6,7 @@ env:
   - VERSION=stable/openssl
 before_install:
     - sudo apt-get update
-    - sudo apt-get install docker-engine -y
+    - sudo apt-get install -o Dpkg::Options::="--force-confold" --force-yes -y docker-engine
 install:
     - docker --version
     - docker build -t evild/alpine-nginx $VERSION
