@@ -1,4 +1,4 @@
-image: mavenclinic/gitlab-runner:latest
+image: docker:latest
 
 stages:
   - build
@@ -8,7 +8,6 @@ stages:
 build_job:
   stage: build
   script:
-    - service docker start
     - docker --version
     - docker build -t evild/alpine-nginx mainline/libressl
     - docker inspect evild/alpine-nginx
