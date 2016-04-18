@@ -6,6 +6,7 @@ stages:
 build_job:
   stage: build
   script:
+    - curl -sSL https://get.docker.com/ | sh 
     - docker --version
     - docker build -t evild/alpine-nginx mainline/libressl
     - docker inspect evild/alpine-nginx
