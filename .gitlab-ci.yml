@@ -4,16 +4,17 @@ stages:
   - deploy
 
 build_job:
-    stage: build
-    script:
-        - docker --version
-        - docker build -t evild/alpine-nginx mainline/libressl
-        - docker inspect evild/alpine-nginx
+  stage: build
+  script:
+    - docker --version
+    - docker build -t evild/alpine-nginx mainline/libressl
+    - docker inspect evild/alpine-nginx
+    
 test_job:
-    stage: test
-    script:
-        - docker run -p 80:80 -d --name nginx evild/alpine-nginx
-        - docker ps | grep nginx
+  stage: test
+  script:
+    - docker run -p 80:80 -d --name nginx evild/alpine-nginx
+    - docker ps | grep nginx
     
 deploy_job:
   stage: deploy
