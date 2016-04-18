@@ -11,7 +11,6 @@ install:
     - docker --version
     - docker build -t evild/alpine-nginx $VERSION
     - docker inspect evild/alpine-nginx
-    - docker run -p 127.0.0.1:80:80 -d --name nginx evild/alpine-nginx
+    - docker run -p 80:80 -d --name nginx evild/alpine-nginx
 script:
-  - docker ps | grep -q nginx
-  - curl -vsf 'http://127.0.0.1:80/' &> /dev/stdout
+  - docker ps | grep nginx
