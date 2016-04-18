@@ -5,6 +5,9 @@ env:
   - VERSION=mainline/libressl
   - VERSION=stable/openssl
 before_install:
+    - apt-get update
+    - apt-get install docker-engine -y
+install:
     - docker --version
     - docker build -t evild/alpine-nginx $VERSION
     - docker inspect evild/alpine-nginx
