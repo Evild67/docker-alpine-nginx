@@ -15,8 +15,6 @@ test_job:
         - docker run -p 80:80 -d --name nginx evild/alpine-nginx
         - docker ps | grep nginx
     
-
-
 deploy_job:
   stage: deploy
   script:
