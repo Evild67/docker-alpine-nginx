@@ -1,9 +1,12 @@
 services:
     - docker
-
+env:
+  - VERSION=mainline/openssl
+  - VERSION=mainline/libressl
+  - VERSION=stable/openssl
 before_install:
     - docker --version
-    - docker build -t evild/alpine-nginx .
+    - docker build -t evild/alpine-nginx $VERSION
     - docker inspect evild/alpine-nginx
     - docker run evild/alpine-nginx -p 80:80
 script:
