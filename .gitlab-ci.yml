@@ -4,4 +4,4 @@ stages:
 Git MIRROR:
   stage: deploy
   script:
-    - git push --mirror https://GITHUB_TOKEN::x-oauth-basic@github.com/Evild67/docker-alpine-nginx.git
+    - git push --mirror https://GITHUB_TOKEN:x-oauth-basic@github.com/Evild67/docker-alpine-nginx.git
