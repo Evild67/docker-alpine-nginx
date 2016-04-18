@@ -11,6 +11,6 @@ install:
     - docker --version
     - docker build -t evild/alpine-nginx $VERSION
     - docker inspect evild/alpine-nginx
-    - docker run evild/alpine-nginx -p 80:80
+    - docker run -p 80:80 evild/alpine-nginx 
 script:
   - curl -vsf 'http://localhost:80/' &> /dev/stdout
