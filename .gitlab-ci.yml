@@ -1,7 +1,23 @@
 stages:
+  - build
+  - test
   - deploy
 
-Git MIRROR:
+build_job:
+    stage: build
+    script:
+        - docker --version
+        - docker build -t evild/alpine-nginx mainline/libressl
+        - docker inspect evild/alpine-nginx
+test_job:
+    stage: test
+    script:
+        - docker run -p 80:80 -d --name nginx evild/alpine-nginx
+        - docker ps | grep nginx
+    
+
+
+deploy_job:
   stage: deploy
   script:
     - git push --mirror https://$GITHUB_TOKEN:x-oauth-basic@github.com/Evild67/docker-alpine-nginx.git
