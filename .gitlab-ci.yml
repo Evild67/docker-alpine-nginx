@@ -1,23 +1,42 @@
-image: gitlab/dind
+image: docker
 
 stages:
   - build
   - test
+  - cleanup
   - deploy
 
-build_job:
+
+build_job_mainline_libressl:
   stage: build
   script:
     - docker --version
-    - docker build -t evild/alpine-nginx mainline/libressl
-    - docker inspect evild/alpine-nginx
-    
+    - docker build -t evild/alpine-nginx:mainline/libressl mainline/libressl
+    - docker inspect evild/alpine-nginx:mainline-libressl
+
+build_job_mainline_openssl:
+  stage: build
+  script:
+    - docker --version
+    - docker build -t evild/alpine-nginx:mainline/openssl mainline/openssl
+    - docker inspect evild/alpine-nginx:mainline-libressl
+
+build_job_stable_libressl:
+  stage: build
+  script:
+    - docker --version
+    - docker build -t evild/alpine-nginx:stable stable/openssl
+
 test_job:
   stage: test
   script:
     - docker run -p 80:80 -d --name nginx evild/alpine-nginx
     - docker ps | grep nginx
-    
+
+cleanup:
+  stage: cleanup
+  script:
+    - docker rm -f $(docker ps -aq)
 deploy_job:
   stage: deploy
   script:
