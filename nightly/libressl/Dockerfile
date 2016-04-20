@@ -27,6 +27,7 @@ RUN \
   && cd /tmp/src \
   && curl -fSL http://hg.nginx.org/nginx/archive/tip.tar.gz -o nginx.tar.gz \
   && tar -zxf nginx.tar.gz \
+  && cd nginx* \
   && ./configure \
     --user=www-data \
     --group=www-data \
