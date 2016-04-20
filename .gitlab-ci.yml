@@ -1,5 +1,3 @@
-image: docker
-
 stages:
   - build
   - test
