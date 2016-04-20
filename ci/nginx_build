@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+
+docker --version
+
+if [ "$NIGHTLY_BUILD" ]; then
+
+docker build -t evild/alpine-nginx:nightly-openssl nightly/openssl
+docker inspect evild/alpine-nginx:nightly-openssl
+
+docker build -t evild/alpine-nginx:nightly-libressl nightly/libressl
+docker inspect evild/alpine-nginx:nightly-libressl
+
+else
+
+docker build -t evild/alpine-nginx:mainline-libressl mainline/libressl
+docker inspect evild/alpine-nginx:mainline-libressl
+
+docker build -t evild/alpine-nginx:mainline-openssl mainline/openssl
+docker inspect evild/alpine-nginx:mainline-libressl
+
+docker build -t evild/alpine-nginx:stable stable/openssl
+docker inspect evild/alpine-nginx:stable
+
+fi

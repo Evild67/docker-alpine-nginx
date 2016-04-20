@@ -1,5 +1,3 @@
-image: docker
-
 stages:
   - build
   - test
@@ -7,37 +5,23 @@ stages:
   - deploy
 
 
-build_job_mainline_libressl:
+build_job:
   stage: build
   script:
-    - docker --version
-    - docker build -t evild/alpine-nginx:mainline-libressl mainline/libressl
-    - docker inspect evild/alpine-nginx:mainline-libressl
-
-build_job_mainline_openssl:
-  stage: build
-  script:
-    - docker --version
-    - docker build -t evild/alpine-nginx:mainline-openssl mainline/openssl
-    - docker inspect evild/alpine-nginx:mainline-libressl
-
-build_job_stable_libressl:
-  stage: build
-  script:
-    - docker --version
-    - docker build -t evild/alpine-nginx:stable stable/openssl
+    - ci/nginx_build
 
 test_job:
   stage: test
   script:
-    - docker run -p 80:80 -d --name nginx evild/alpine-nginx
-    - docker ps | grep nginx
+    - ci/nginx_test
 
 cleanup:
   stage: cleanup
   script:
-    - docker rm -f $(docker ps -aq)
+    - ci/nginx_cleanup
+  when: always
+
 deploy_job:
   stage: deploy
   script:
-    - git push --mirror https://$GITHUB_TOKEN@github.com/Evild67/docker-alpine-nginx.git
+    - ci/nginx_deploy
