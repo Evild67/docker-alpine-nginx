@@ -4,7 +4,7 @@ set -e
 
 docker --version
 
-if [ -z "$NIGHTLY_BUILD" ]; then
+if [ "$NIGHTLY_BUILD" ]; then
 
 docker build -t evild/alpine-nginx:nightly-openssl nightly/openssl
 docker inspect evild/alpine-nginx:nightly-openssl
