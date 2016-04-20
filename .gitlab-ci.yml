@@ -13,8 +13,7 @@ build_job:
 test_job:
   stage: test
   script:
-    - docker run -p 80:80 -d --name nginx evild/alpine-nginx
-    - docker ps | grep nginx
+    - ci/nginx_test
 
 cleanup:
   stage: cleanup
