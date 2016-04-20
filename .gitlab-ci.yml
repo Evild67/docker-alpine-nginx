@@ -18,7 +18,7 @@ test_job:
 cleanup:
   stage: cleanup
   script:
-    - ci_nginx_cleanup
+    - ci/nginx_cleanup
   when: always
 
 deploy_job:
