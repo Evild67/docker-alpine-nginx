@@ -18,10 +18,10 @@ test_job:
 cleanup:
   stage: cleanup
   script:
-    - docker rm -f $(docker ps -aq)
-
+    - ci_nginx_cleanup
+  when: always
 
 deploy_job:
   stage: deploy
   script:
-    - git push --mirror https://$GITHUB_TOKEN@github.com/Evild67/docker-alpine-nginx.git
+    - ci/nginx_deploy
