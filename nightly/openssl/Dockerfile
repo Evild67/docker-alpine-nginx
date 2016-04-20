@@ -14,8 +14,8 @@ RUN \
   && cd /tmp/src \
   && curl -fSL http://hg.nginx.org/nginx/archive/tip.tar.gz -o nginx.tar.gz \
   && tar -zxf nginx.tar.gz \
-  && cd nginx-*/auto \
-  && ./configure \
+  && cd nginx-*/ \
+  && ./auto/configure \
     --user=www-data \
     --group=www-data \
     --sbin-path=/usr/sbin/nginx \
