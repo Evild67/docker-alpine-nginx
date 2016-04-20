@@ -7,25 +7,10 @@ stages:
   - deploy
 
 
-build_job_mainline_libressl:
+build_job:
   stage: build
   script:
-    - docker --version
-    - docker build -t evild/alpine-nginx:mainline-libressl mainline/libressl
-    - docker inspect evild/alpine-nginx:mainline-libressl
-
-build_job_mainline_openssl:
-  stage: build
-  script:
-    - docker --version
-    - docker build -t evild/alpine-nginx:mainline-openssl mainline/openssl
-    - docker inspect evild/alpine-nginx:mainline-libressl
-
-build_job_stable_libressl:
-  stage: build
-  script:
-    - docker --version
-    - docker build -t evild/alpine-nginx:stable stable/openssl
+    - ci/nginx_build
 
 test_job:
   stage: test
@@ -37,6 +22,8 @@ cleanup:
   stage: cleanup
   script:
     - docker rm -f $(docker ps -aq)
+
+
 deploy_job:
   stage: deploy
   script:
