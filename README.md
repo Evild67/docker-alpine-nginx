@@ -39,15 +39,17 @@ Nginx (pronounced "engine-x") is an open source reverse proxy server for HTTP, H
 ## Installation
 Automated builds of the image are available on Dockerhub and is the recommended method of installation.
 ```
-docker pull evild/alpine-nginx:1.9.14
+docker pull evild/alpine-nginx:1.9.15
 ```
-You can also pull the latest tag which is built from the repository HEAD.
+
+You can also pull the latest tag which is built from the repository HEAD : Nginx Mainline with Openssl.
 ```
 docker pull evild/alpine-nginx:latest
 ```
-Alternatively you can build the image locally.
+
+If you are crazy, you can also pull nightly tag witch is build every day from nginx git source.
 ```
-docker build -t evild/alpine-nginx github.com/evild67/alpine-nginx
+docker pull evild/alpine-nginx:nightly
 ```
 
 
