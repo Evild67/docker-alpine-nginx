@@ -54,7 +54,6 @@ docker pull evild/alpine-nginx:nightly
 
 
 ## Basic usage
-
 ```docker run -p 80:80 -p 443:443 --name nginx evild/alpine-nginx```
 
 ### with docker-compose.yml v1
