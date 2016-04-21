@@ -1,5 +1,12 @@
 #!/bin/sh
 
 set -e
-git checkout master
-git push --mirror https://$GITHUB_TOKEN@github.com/Evild67/docker-alpine-nginx.git
+
+if [ "$NIGHTLY_BUILD" ]; then
+  curl -H "Content-Type: application/json" --data '{"source_type": "Branch", "source_name": "master"}' -X POST https://registry.hub.docker.com/u/evild/alpine-nginx/trigger/$DOCKER_HUB_ALPINE_NGINX_TOKEN/
+else
+
+  git checkout master
+  git push --mirror https://$GITHUB_TOKEN@github.com/Evild67/docker-alpine-nginx.git
+
+fi
