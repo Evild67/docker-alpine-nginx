@@ -6,10 +6,10 @@ docker --version
 
 if [ "$NIGHTLY_BUILD" ]; then
 
-docker build -t evild/alpine-nginx:nightly-openssl nightly/openssl
+docker build -t evild/alpine-nginx:nightly-openssl --no-cache  nightly/openssl
 docker inspect evild/alpine-nginx:nightly-openssl
 
-docker build -t evild/alpine-nginx:nightly-libressl nightly/libressl
+docker build -t evild/alpine-nginx:nightly-libressl --no-cache  nightly/libressl
 docker inspect evild/alpine-nginx:nightly-libressl
 
 else
