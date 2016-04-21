@@ -2,5 +2,4 @@
 
 set -e
 git checkout master
-git checkout $CI_BUILD_REF_NAME
 git push --mirror https://$GITHUB_TOKEN@github.com/Evild67/docker-alpine-nginx.git
