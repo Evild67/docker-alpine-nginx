@@ -20,7 +20,11 @@ docker inspect evild/alpine-nginx:mainline-libressl
 docker build -t evild/alpine-nginx:mainline-openssl mainline/openssl
 docker inspect evild/alpine-nginx:mainline-libressl
 
-docker build -t evild/alpine-nginx:stable stable/openssl
+docker build -t evild/alpine-nginx:stable-openssl stable/openssl
 docker inspect evild/alpine-nginx:stable
+
+docker build -t evild/alpine-nginx:stable-libressl stable/libressl
+docker inspect evild/alpine-nginx:stable-libressl
+
 
 fi
