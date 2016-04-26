@@ -26,14 +26,14 @@ else
   sleep 10
   curl -I 127.0.0.1:5001
 
-  docker run -p 5002:80 -d --name nginx-stable-openssl evild/alpine-nginx:stable-openssl
+  docker run -p 5003:80 -d --name nginx-stable-openssl evild/alpine-nginx:stable-openssl
   docker ps | grep nginx-stable-openssl
   sleep 10
-  curl -I 127.0.0.1:5002
+  curl -I 127.0.0.1:5003
   
-  docker run -p 5002:80 -d --name nginx-stable-libressl evild/alpine-nginx:stable-libressl
+  docker run -p 5004:80 -d --name nginx-stable-libressl evild/alpine-nginx:stable-libressl
   docker ps | grep nginx-stable-libressl
   sleep 10
-  curl -I 127.0.0.1:5002
+  curl -I 127.0.0.1:5004
 
 fi
