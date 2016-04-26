@@ -2,8 +2,8 @@ stages:
   - build
   - test
   - cleanup
+  - tweet
   - deploy
-
 
 build_job:
   stage: build
@@ -21,7 +21,20 @@ cleanup:
     - ci/nginx_cleanup
   when: always
 
+tweet_job:
+  stage: tweet
+  only:
+    - tags
+    - triggers
+    - master
+  script:
+    - ci/nginx_tweet
+
 deploy_job:
   stage: deploy
+  only:
+    - tags
+    - triggers
+    - master
   script:
     - ci/nginx_deploy
