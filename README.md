@@ -29,6 +29,7 @@ This image is based on [evild/alpine-base](https://hub.docker.com/r/evild/alpine
 ### Stable
 
 - `stable` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/master/stable/openssl/Dockerfile)
+- `1.10.0` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/a1afaef62c34dfd67f40616c2e4d3a59913ce14a/stable/openssl/Dockerfile)
 - `1.8.1` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/94288e4964c8261729c4103e4ce24077c8a1e67a/stable/openssl/Dockerfile)
 
 
