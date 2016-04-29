@@ -42,7 +42,7 @@ tweet_failed_job:
     - master
   script:
     - ci/nginx_tweet
-  when: always
+  when: on_failure
 
 deploy_job:
   stage: deploy
