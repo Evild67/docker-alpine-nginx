@@ -1,3 +1,18 @@
 #!/bin/sh
-set -e 
-docker run --rm  -e TWITTER_ACCESS_TOKEN_SECRET=$TWITTER_ACCESS_TOKEN_SECRET -e TWITTER_ACCESS_TOKEN_KEY=$TWITTER_ACCESS_TOKEN_KEY -e TWITTER_CONSUMER_SECRET=$TWITTER_CONSUMER_SECRET -e TWITTER_CONSUMER_KEY=$TWITTER_CONSUMER_KEY evild/twitter_build_bot:latest "Gitlab Job $CI_BUILD_ID : #Docker nginx build Succeed"
+set -e
+
+tweet_text="Gitlab Job $CI_BUILD_ID :"
+
+if [ "$NIGHTLY_BUILD" ]; then
+tweet_text="$default_text #Docker nightly build"
+else
+tweet_text="$default_text #Docker $CI_BUILD_REF_NAME build"
+fi
+
+if [ $PASSED = true ]; then
+  tweet_text="$tweet_text succeed"
+else
+  tweet_text="$tweet_text failed"
+fi
+
+docker run --rm  -e TWITTER_ACCESS_TOKEN_SECRET=$TWITTER_ACCESS_TOKEN_SECRET -e TWITTER_ACCESS_TOKEN_KEY=$TWITTER_ACCESS_TOKEN_KEY -e TWITTER_CONSUMER_SECRET=$TWITTER_CONSUMER_SECRET -e TWITTER_CONSUMER_KEY=$TWITTER_CONSUMER_KEY evild/twitter_build_bot:latest $tweet_text
