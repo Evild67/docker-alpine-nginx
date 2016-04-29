@@ -4,9 +4,9 @@ set -e
 default_text="Gitlab Job $CI_BUILD_ID :"
 
 if [ "$NIGHTLY_BUILD" ]; then
-tweet_text="$default_text #Docker nightly build"
+tweet_text="$default_text #Docker nginx nightly build"
 else
-tweet_text="$default_text #Docker $CI_BUILD_REF_NAME build"
+tweet_text="$default_text #Docker nginx $CI_BUILD_REF_NAME build"
 fi
 
 if [ $PASSED = true ]; then
