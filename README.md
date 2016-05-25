@@ -17,6 +17,8 @@ This image is based on [evild/alpine-base](https://hub.docker.com/r/evild/alpine
 
 - `mainline-libressl`, `libressl`, [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/master/mainline/libressl/Dockerfile)
 - `mainline`, `mainline-openssl`, `openssl`, `latest` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/master/mainline/openssl/Dockerfile)
+- `1.11.0-libressl`  [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/c1503c0a22958a242bde414a60fa92967be2533a/mainline/libressl/Dockerfile)
+- `1.11.0`, `1.11.0-openssl` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/c1503c0a22958a242bde414a60fa92967be2533a/maineline/openssl/Dockerfile)
 - `1.9.15-libressl`  [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/26f2f9939c0d706b532749530499da069572783a/mainline/libressl/Dockerfile)
 - `1.9.15`, `1.9.15-openssl` [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/26f2f9939c0d706b532749530499da069572783a/maineline/openssl/Dockerfile)
 - `1.9.14-libressl`  [(Dockerfile)](https://github.com/Evild67/docker-alpine-nginx/blob/546d83c12ab16e5c997900d0bf473b8ca97f2c30/mainline/libressl/Dockerfile)
