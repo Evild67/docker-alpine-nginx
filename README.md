@@ -85,7 +85,9 @@ You can overwrite nginx configuration:
 
 Create your own nginx.conf. Make sure your nginx.conf file has a volume to ```/etc/nginx/conf/nginx.conf```
 
-```docker run -p 80:80 -p 443:443 -v /your/path/to/nginx.conf:/etc/nginx/conf/nginx.conf:ro --name nginx evild/alpine-nginx```
+```
+docker run -p 80:80 -p 443:443 -v /your/path/to/nginx.conf:/etc/nginx/conf/nginx.conf:ro --name nginx evild/alpine-nginx
+```
 
 
 Make sure you set ```daemon off``` in your configuration otherwise the container will exit.
