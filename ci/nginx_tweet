@@ -10,9 +10,9 @@ tweet_text="$default_text #Docker nginx $CI_BUILD_REF_NAME build"
 fi
 
 if [ $PASSED = true ]; then
-  tweet_text="$tweet_text succeed"
+  tweet_text="$tweet_text succeed http://mercu.re/1PkRj07"
 else
-  tweet_text="$tweet_text failed"
+  tweet_text="$tweet_text failed http://mercu.re/1PkRj07"
 fi
 
 docker run --rm  -e TWITTER_ACCESS_TOKEN_SECRET=$TWITTER_ACCESS_TOKEN_SECRET -e TWITTER_ACCESS_TOKEN_KEY=$TWITTER_ACCESS_TOKEN_KEY -e TWITTER_CONSUMER_SECRET=$TWITTER_CONSUMER_SECRET -e TWITTER_CONSUMER_KEY=$TWITTER_CONSUMER_KEY evild/twitter_build_bot:latest "$tweet_text"
