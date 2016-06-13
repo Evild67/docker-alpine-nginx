@@ -8,8 +8,8 @@ ENV GPG_KEYS \
   A1EB079B8D3EB92B4EBD3139663AF51BD5E4D8D5
 
 RUN \
-  build_pkgs="build-base linux-headers openssl-dev pcre-dev curl zlib-dev gnupg" \
-  && runtime_pkgs="ca-certificates openssl pcre zlib" \
+  build_pkgs="build-base linux-headers openssl-dev pcre-dev curl zlib-dev gnupg geoip-dev" \
+  && runtime_pkgs="ca-certificates openssl pcre zlib geoip" \
   && apk --no-cache add ${build_pkgs} ${runtime_pkgs} \
   && for key in $GPG_KEYS; do \
 		gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
@@ -59,6 +59,7 @@ RUN \
     --with-stream \
     --with-stream_ssl_module \
     --with-http_v2_module \
+    --with-http_geoip_module \
     --prefix=/etc/nginx \
     --http-log-path=/var/log/nginx/access.log \
     --error-log-path=/var/log/nginx/error.log \
