@@ -46,12 +46,17 @@ This image is based on [evild/alpine-base](https://hub.docker.com/r/evild/alpine
 
 
 ## What is Nginx?
+
+<p align="center">
+  <img alt="nginx logo" src="https://nginx.org/nginx.png">
+</p>
+
 Nginx (pronounced "engine-x") is an open source reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP cache, and a web server (origin server). The nginx project started with a strong focus on high concurrency, high performance and low memory usage. It is licensed under the 2-clause BSD-like license and it runs on Linux, BSD variants, Mac OS X, Solaris, AIX, HP-UX, as well as on other nix flavors. It also has a proof of concept port for Microsoft Window..
 
 ## Installation
 Automated builds of the image are available on Dockerhub and is the recommended method of installation.
 ```
-docker pull evild/alpine-nginx:1.9.15
+docker pull evild/alpine-nginx:1.11.2
 ```
 
 You can also pull the latest tag which is built from the repository HEAD : Nginx Mainline with Openssl.
@@ -66,7 +71,9 @@ docker pull evild/alpine-nginx:nightly
 
 
 ## Basic usage
-```docker run -p 80:80 -p 443:443 --name nginx evild/alpine-nginx```
+```
+docker run -p 80:80 -p 443:443 --name nginx evild/alpine-nginx
+```
 
 ### with docker-compose.yml v1
 
@@ -93,3 +100,16 @@ docker run -p 80:80 -p 443:443 -v /your/path/to/nginx.conf:/etc/nginx/conf/nginx
 
 
 Make sure you set ```daemon off``` in your configuration otherwise the container will exit.
+
+## Example
+
+* [docker-compose-lemp](https://github.com/Evild67/docker-compose-lemp)
+  * [FR LEMP Stack en 90 secondes avec Docker](http://mercu.re/27YTwVb)
+  * [EN  LEMP Stack in 90 seconds with Docker](http://mercu.re/1UdVJ4M)
+* [docker-compose-wordpress](https://github.com/Evild67/docker-compose-wordpress)
+  * [FR WordPress en 90 secondes avec Docker](https://mercu.re/21uE123)
+  * [EN WordPress in 90 seconds with Docker](https://mercu.re/28Sddt3)
+
+## License
+
+[MIT](https://github.com/Evild67/docker-alpine-nginx/blob/master/README.md)
