@@ -1,6 +1,6 @@
 [![Docker Stars](https://img.shields.io/docker/stars/evild/alpine-nginx.svg?style=flat-square)](https://hub.docker.com/r/evild/alpine-nginx/)
 [![Docker Pulls](https://img.shields.io/docker/pulls/evild/alpine-nginx.svg?style=flat-square)](https://hub.docker.com/r/evild/alpine-nginx/)
-
+[![](https://images.microbadger.com/badges/image/evild/alpine-nginx.svg)](https://microbadger.com/images/evild/alpine-nginx)
 
 # Alpine Nginx
 
@@ -49,9 +49,9 @@ This image is based on [evild/alpine-base](https://hub.docker.com/r/evild/alpine
 
 ## What is Nginx?
 
-<p align="center">
-  <img alt="nginx logo" src="https://nginx.org/nginx.png">
-</p>
+
+![nginx logo](https://nginx.org/nginx.png)
+
 
 Nginx (pronounced "engine-x") is an open source reverse proxy server for HTTP, HTTPS, SMTP, POP3, and IMAP protocols, as well as a load balancer, HTTP cache, and a web server (origin server). The nginx project started with a strong focus on high concurrency, high performance and low memory usage. It is licensed under the 2-clause BSD-like license and it runs on Linux, BSD variants, Mac OS X, Solaris, AIX, HP-UX, as well as on other nix flavors. It also has a proof of concept port for Microsoft Window..
 
